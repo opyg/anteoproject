@@ -3,27 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import TWEEN from '@tweenjs/tween.js';
 // main.js
-const parallelepipeds = [[]];
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('https://your-api-endpoint.com/data')
-    .then(response => response.json())
-    .then(dataArray => {
-      console.log(dataArray); // Массив данных
-      processArray(dataArray); // Функция для обработки массива данных
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-});
-
-function processArray(array) {
-  // Пример обработки массива данных
-  array.forEach(item => {
-    parallelepipeds.push([item.x, item.y,item.z, item.width, item.height, item.depth]);
-    // Ваш код для работы с данными
-  });
-}
 
 // Setup
 const scene = new THREE.Scene();
@@ -64,7 +44,38 @@ function createParallelepiped([x, y, z, width, height, depth]) {
   scene.add(parallelepiped);
   draggableObjects.push(parallelepiped);
 }
-
+const parallelepipeds = [
+    [0, 0, 0, 80, 80, 60],  
+    [80, 0, 0, 80, 80, 60], 
+    [160, 0, 0, 80, 80, 60], 
+    [0, 80, 0, 80, 80, 60],  
+    [80, 80, 0, 80, 80, 60], 
+    [160, 80, 0, 80, 80, 60],
+    [0, 160, 0, 80, 80, 60], 
+    [80, 160, 0, 80, 80, 60],
+    [160, 160, 0, 80, 80, 60],
+    [0, 0, 60, 80, 80, 60],  
+    [0, 0, 120, 20, 30, 40],
+    [20, 0, 120, 20, 30, 40],
+    [40, 0, 120, 20, 30, 40],
+    [60, 0, 120, 20, 30, 40],
+    [80, 0, 120, 20, 30, 40],
+    [0, 30, 120, 20, 30, 40],
+    [20, 30, 120, 20, 30, 40],
+    [40, 30, 120, 20, 30, 40],
+    [60, 30, 120, 20, 30, 40],
+    [80, 30, 120, 20, 30, 40],
+    [0, 60, 120, 20, 30, 40],
+    [20, 60, 120, 20, 30, 40],
+    [40, 60, 120, 20, 30, 40],
+    [60, 60, 120, 20, 30, 40],
+    [80, 60, 120, 20, 30, 40],
+    [0, 90, 120, 20, 30, 40],
+    [20, 90, 120, 20, 30, 40],
+    [40, 90, 120, 20, 30, 40],
+    [60, 90, 120, 20, 30, 40],
+    [80, 90, 120, 20, 30, 40] 
+];
 parallelepipeds.forEach(createParallelepiped);
 
 // Cube
