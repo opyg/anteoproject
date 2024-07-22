@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>site</title>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>site</title>
+  <style>
+    #startButton {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 40px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1;
+    }
+    #bg {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="startButton">Start</button>
+  <canvas id="bg"></canvas>
+  
+  <script>
+    document.getElementById('startButton').addEventListener('click', function() {
+      document.getElementById('startButton').style.display = 'none';
+      document.getElementById('bg').style.display = 'block';
 
-    <canvas id="bg"></canvas>   
-<!-- 
-    <main>
-
-
-    </main> -->
-    
-    <script type="module" src="/main.js"></script>
-
-
-  </body>
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = '/main.js';
+      document.body.appendChild(script);
+    });
+  </script>
+</body>
 </html>
