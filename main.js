@@ -157,6 +157,7 @@ window.addEventListener('mouseup', () => {
   isPanning = false;
 });
 
+
 // Event listener for mouse move
 window.addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -235,7 +236,7 @@ window.addEventListener('mousemove', (event) => {
         }
 
         new TWEEN.Tween(intersectedObject.position)
-          .to(newPosition, 300) // Smooth transition duration
+          .to(newPosition, 400) // Smooth transition duration
           .easing(TWEEN.Easing.Quadratic.Out)
           .start();
       }
